@@ -2,27 +2,27 @@
 
 namespace MemcachedLib;
 
-class MemcachedLib implements MemcachedLibInterface
+class MemcachedLib extends MemcachedLibConnect implements MemcachedLibInterface
 {
 
     /**
      * @param string $host
      * @param int $port
      */
-    public function setServer(string $host, int $port): void
+    public function setServer(string $host = '127.0.0.1', int $port = 11211): void
     {
-        // TODO: Implement setServer() method.
+        $this->createConnect($host, $port);
     }
 
     /**
      * @param string $key
-     * @param $data
+     * @param $value
      * @param int $time
      * @return bool
      */
-    public function set(string $key, $data, int $time): bool
+    public function set(string $key, $value, int $time = 0): bool
     {
-        // TODO: Implement set() method.
+        return $this->request('STORED', $key, $value, $time);
     }
 
     /**
@@ -31,7 +31,7 @@ class MemcachedLib implements MemcachedLibInterface
      */
     public function get(string $key)
     {
-        // TODO: Implement get() method.
+        return $this->request('GET', $key);
     }
 
     /**
@@ -40,6 +40,6 @@ class MemcachedLib implements MemcachedLibInterface
      */
     public function delete(string $key): bool
     {
-        // TODO: Implement delete() method.
+        return $this->request('DELETED', $key);
     }
 }
