@@ -1,0 +1,32 @@
+{
+  "name": "sergeym0615/memcached-lib",
+  "description": "Memcached implemented method set|get|delete",
+  "type": "library",
+  "version": "1.0.0",
+  "license": "MIT",
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "require": {
+    "phpunit/phpunit": "7"
+  },
+  "authors": [
+    {
+      "name": "kislota",
+      "email": "kislotakill@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MemcachedLib\\": "lib"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "test"
+    }
+  },
+  "minimum-stability": "stable"
+}
