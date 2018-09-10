@@ -22,4 +22,32 @@ class MemcachedTest extends TestCase
         $value = [11, 12];
         $this->assertTrue($this->memory->set($key, $value));
     }
+
+    public function testGetKey()
+    {
+        $key = 'getKey';
+        $value = [11, 12];
+        $this->assertTrue($this->memory->set($key, $value));
+        $this->assertEquals($value, $this->memory->get($key));
+    }
+
+    public function testGetKeyNotFound()
+    {
+        $key = 'key';
+        $this->assertNull($this->memory->get($key));
+    }
+
+    public function testDeleteKey()
+    {
+        $key = 'deleteKey';
+        $value = 'deleteValue';
+        $this->assertTrue($this->memory->set($key, $value));
+        $this->assertTrue($this->memory->delete($key));
+    }
+
+    public function testDeleteKeyNotFound()
+    {
+        $key = 'key';
+        $this->assertFalse($this->memory->delete($key));
+    }
 }
