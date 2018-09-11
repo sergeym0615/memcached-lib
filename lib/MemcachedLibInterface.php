@@ -2,15 +2,8 @@
 
 namespace MemcachedLib;
 
-
 interface MemcachedLibInterface
 {
-
-    /**
-     * @param string $host
-     * @param int $port
-     */
-    public function setServer(string $host, int $port): void;
 
     /**
      * @param string $key
@@ -31,5 +24,4 @@ interface MemcachedLibInterface
      * @return bool
      */
     public function delete(string $key): bool;
-
 }

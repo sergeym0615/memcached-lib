@@ -14,14 +14,12 @@ composer require sergeym0615/memcached-lib
 use MemcachedLib\MemcahedLib;
 
 #Default
-$memcached = new MemcachedLib;
-$memcached->setServer();
+$memcached = new MemcachedLib();
 
 #Custom host and port
 $host = '127.0.0.1';
 $port = 11211
-$memcached = new MemcachedLib;
-$memcached->setServer($host, $port);
+$memcached = new MemcachedLib($host, $port);
 ```
 Save data
 ```php

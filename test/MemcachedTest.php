@@ -13,7 +13,6 @@ class MemcachedTest extends TestCase
     {
         parent::__construct($name, $data, $dataName);
         $this->memory = new MemcachedLib();
-        $this->memory->setServer();
     }
 
     public function testSetKey()

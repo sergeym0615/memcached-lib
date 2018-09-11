@@ -6,15 +6,6 @@ class MemcachedLib extends MemcachedLibConnect implements MemcachedLibInterface
 {
 
     /**
-     * @param string $host
-     * @param int $port
-     */
-    public function setServer(string $host = '127.0.0.1', int $port = 11211): void
-    {
-        $this->createConnect($host, $port);
-    }
-
-    /**
      * @param string $key
      * @param $value
      * @param int $time
@@ -22,7 +13,7 @@ class MemcachedLib extends MemcachedLibConnect implements MemcachedLibInterface
      */
     public function set(string $key, $value, int $time = 0): bool
     {
-        return $this->request('STORED', $key, $value, $time);
+        return $this->requestSet($key, $value, $time);
     }
 
     /**
@@ -31,7 +22,7 @@ class MemcachedLib extends MemcachedLibConnect implements MemcachedLibInterface
      */
     public function get(string $key)
     {
-        return $this->request('GET', $key);
+        return $this->requestGet($key);
     }
 
     /**
@@ -40,6 +31,6 @@ class MemcachedLib extends MemcachedLibConnect implements MemcachedLibInterface
      */
     public function delete(string $key): bool
     {
-        return $this->request('DELETED', $key);
+        return $this->requestDelete($key);
     }
 }
